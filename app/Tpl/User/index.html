@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:head-static" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/user_index.css" />
+    <title>点餐吧</title>
+</head>
+<body>
+    <div class="user-wrap">
+        <a href="/user/info" class="user-part">
+            <div class="user-header"></div>
+            <strong class="user-name">{$userInfo['nickname']}</strong>
+            <div class="btn btn-success user-info">查看/修改个人信息</div>
+            <div class="clearfix"></div>
+        </a>
+    </div>
+<if condition="($_SESSION['order'] neq null || $_SESSION['order'] neq '')">
+    <div class="alert alert-warning text-center">您有未完成的订单！<a href="/rest/detail/{$_SESSION['order']['shopId']}" class="go-rest-list">前往餐厅 >>></a></div>
+</if>
+<div class="activity-box">
+    <a href="http://mp.weixin.qq.com/s?__biz=MzA3MjQxOTEzNg==&mid=200147354&idx=1&sn=1da223807770e129620955a2671933c2#rd" class="alert alert-success alert-dismissable" style="display: block;text-decoration: none;color:#fff;">
+        <button class="close">×</button>
+        集赞送"<strong>最新款红米Note，零食，高清种子，更有大量【超级课程表】专属限量礼品等你抢</strong>"活动，参加即有！
+        <span style="text-decoration: underline;">&gt;&gt;&gt;&gt;点击查看详情</span></a>
+</div>
+<if condition="$favoriteList neq null"> 
+<div class="favorite-shop-list-wrap">
+    <div class="favorite-shop-list-title">我收藏的餐厅</div>
+    <ul class="nav navbar favorite-shop-list">
+        <volist name="favoriteList" id="vo">
+        <li class="favorite-shop">
+            <a href="/rest/detail/{$vo['shop_id']|encodeShopId}">
+            <img class="favorite-shop-image" src="{$vo['shop_image']}" />
+            <span class="favorite-shop-name">{$vo['shop_name']}</span>
+            </a>
+        </li>
+        </volist>
+    </ul>
+</div>
+</if>
+    <script type="text/javascript" src="/static/js/zepto.js"></script>
+    <script type="text/javascript" src="/static/js/alert.js"></script>
+    <!-- 订单列表 end-->
+    <div class="btn-group btn-group-justified navbar-fixed-bottom menu-tab">
+        <a href="/order" class="btn btn-primary menu-tab-order" role="button">我的订单</a>
+        <a href="/rest" class="btn btn-primary menu-tab-rest-list" role="button">餐厅列表</a>
+        <a href="/user" class="btn btn-primary menu-tab-order active" role="button">个人中心</a>
+    </div> 
+    {:W("GoogleAnalytics")} 
+</body>
+</html>
+

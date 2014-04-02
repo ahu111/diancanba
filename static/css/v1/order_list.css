@@ -1,0 +1,46 @@
+.go-rest-list {
+    color: #F7F7F7;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.order-bus-name {
+    overflow: hidden;
+}
+.order-bus-name span{
+    display: block;
+    width: 150px;
+    color: #333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+table {
+    border-bottom: 1px solid #cccccc;
+}
+
+table th {
+    color: #333
+}
+
+.order-time {
+    background: #00ccff;
+    color: #fff;
+}
+
+.order-arrow-right {
+    text-align: right;
+    display: block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    background: url(/static/img/v1/sprite.png) 0px -75px no-repeat;
+}
+
+.order-price {
+    color: #ff3333;
+}
+
+
+

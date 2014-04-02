@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:shop-common-header" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/shop-index.css" />
+</head>
+<body>
+    {:W("shopHeader")}
+     <div class='container'>
+        <ul class="nav nav-pills container shop-sidebar ">
+            <li class="active"><a href="/shop"><span class="glyphicon glyphicon-home"></span> 最新订单</a></li>
+            <li><a href="/shop/info"><span class="glyphicon glyphicon-home"></span> 餐厅管理</a></li>
+            <li><a href="/shop/menu"><span class="glyphicon glyphicon-list"></span> 餐点管理</a></li>
+            <li><a href="/shop/customer"><span class="glyphicon glyphicon-gift"></span> 顾客列表</a></li>
+             <li><a href="/shop/user"><span class="glyphicon glyphicon-user"></span> 商户信息</a></li>
+        </ul>
+         <div class="container">
+            <volist name="orderList" id="vo">
+                <table class="table table-bordered table-striped table-order-detail">
+                     <tr><th>订单时间</th><th colspan='2'>订单详情</th><th>价格</th></tr>
+                     <tr><td><strong class="order-time">{$vo['date']}（{$vo['date']|getMinuteInterval}分钟前）</strong></td><td colspan='2'>
+                             <ul class="nav navbar nav-stacked"> 
+                             <volist name="vo['menuList']" id='menu'>
+                                 <li class="menu-wrap">{$menu['menu_name']} ----- {$menu['menu_number']}份</li>
+                             </volist>
+                             </ul>
+                         </td><td><strong class="order-price">￥{$vo['order_price']}</strong></td></tr>
+                     <tr><th>联系手机</th><th colspan='2' style='word-break: break-all'>送餐地址</th><th>联系人</th></tr>
+                     <tr>
+                         <td class="order-phone">{$vo['order_phone']}</td>
+                         <td colspan='2' class='order-address'>{$vo['order_address']}</td>
+                         <td class='order-user-name'>{$vo['order_user_name']}</td>
+                     </tr>
+                     <tr><th colspan='3'>用户留言</th><th>操作</th></tr>
+                     <tr><td colspan='3' style='word-break: break-all'>{$vo['user_remark']}</td>
+                         <td><if condition="$vo['order_status'] eq 2">
+                                <span class="btn btn-success btn-sm order-accept">接收</span>
+                                <span class="btn btn-danger btn-sm order-reject">拒绝</span>
+                                <else />
+                                <span class="btn btn-default btn-sm">商户已确认(历史订单)</span>
+                     </if>
+                     
+                             <input type="hidden" value="{$vo['oid']|encodeOrderId}" class='order-id'/>
+                            </td></tr>
+             </table>
+                <hr />
+                     </volist>
+                
+         </div>
+     </div>
+      
+   
+     <script type="text/javascript" src="/static/js/jquery-1.8.3.js"></script>
+     <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+     <script type="text/javascript" src="/static/js/v1/shop-index.js?v=20130330"></script>
+     {:W("GoogleAnalytics")} 
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/shop_qrcode.css" />
+</head>
+<body>
+    <div class="container qr-container">
+        <h4>{$shopName}</h4>
+        <div id="qr-code-image" class="qr-code-image"></div>
+        <div class="qr-notify">使用二维码扫描工具（如微信）扫描即可进入商铺<br />餐厅不能为关闭状态</div>
+    </div>
+    </div>
+    <script src="/static/js/jquery-1.8.3.js"></script>
+    <script src="/static/js/jquery.qrcode.js"></script>
+    <script>
+        $(function(){
+            $("#qr-code-image").qrcode({ 
+                render: "table", //table方式 
+                width: 200, //宽度 
+                height:200, //高度 
+                text: "http://{$_SERVER['SERVER_NAME']}/rest/detail/{$_SESSION['shopId']|encodeShopId}" //任意内容 
+            }); 
+        })
+        
+        </script>
+        {:W("GoogleAnalytics")} 
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:shop-common-header" />
+</head>
+<body>
+    {:W("shopHeader")}
+     <div class='container'>
+        <ul class="nav nav-pills container shop-sidebar ">
+            <li><a href="/shop"><span class="glyphicon glyphicon-home"></span> 最新订单</a></li>
+            <li><a href="/shop/info"><span class="glyphicon glyphicon-home"></span>餐厅管理</a></li>
+            <li><a href="/shop/menu"><span class="glyphicon glyphicon-list"></span> 餐点管理</a></li>
+            <li class="active"><a href="/shop/customer"><span class="glyphicon glyphicon-gift"></span> 顾客列表</a></li>
+            <li><a href="/shop/user"><span class="glyphicon glyphicon-user"></span> 商户信息</a></li>
+        </ul>
+         <div class="container">
+             <table class="table table-bordered table-striped">
+                 <thead><tr><th class="col-lg-2">顾客姓名</th><th class="col-lg-1"><a href="/shop/customer/count/" title="点击以此排序">本店总单数<span class="caret"></span></a></th><th class="col-lg-2"><a href="/shop/customer/amount/">本店消费总额<span class="caret"></span></a></th><th class="col-lg-2"><a href="/shop/customer/">最近一次消费时间<span class="caret"></span></a></th></tr></thead>
+                 <tbody>
+                     <volist name="customerInfo" id="vo">
+                     <tr><td>{$vo['order_user_name']}</td><td><a href="/shop/detail/{$vo['user_id']|encodeUserId}">{$vo['order_sum']}</a></td><td>￥{$vo['order_total_price']}元</td><td>{$vo['date']}</td></tr>
+                     </volist>
+                 </tbody>
+                 
+             </table>
+         </div>
+     </div>
+     <script type="text/javascript" src="/static/js/jquery-1.8.3.js"></script>
+     <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+     {:W("GoogleAnalytics")} 
+</body>
+</html>

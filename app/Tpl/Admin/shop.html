@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:admin_common_header" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/admin-shop.css" />
+</head>
+<body>
+      <div class='container'>
+        <ul class='nav navbar nav-stacked admin-navbar'>
+            <li><a href="/admin">首页</a></li>
+            <li><a href="/admin/order" >最新订单</a></li>
+            <li><a href="/admin/shop">商户管理</a></li>
+            <li><a href="/admin/area">区域管理</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <form class="form form-horizontal col-lg-3 form-add-new-shop" id="form-add-new-shop">
+            <legend>添加新商户</legend>
+            <fieldset>
+                <div class="label label-warning ">新添加商户的初始密码为8个1</div>
+                <div class="fo">
+                    <label class="control-label" for="shop-email">商户邮箱</label>
+                    <input type="text" class="form-control input-sm" id="shop-email" />
+                </div>
+                <button class="shop-add-btn btn btn-primary btn-sm" id="shop-add-btn">确认添加</button>
+            </fieldset>
+        </form>
+        <table class="table table-striped table-bordered">
+            <tr><td>商户邮箱</td><td>商户名字</td><td>商户电话</td><td>商铺地址</td></tr>
+            <volist name="shopList" id="vo"> 
+                <tr><td>{$vo['shop_email']}</td>
+                    <td>{$vo['shop_name']}</td>
+                    <td>{$vo['shop_phone']}</td>
+                    <td>{$vo['shop_address']}</td>
+                </tr>
+            </volist>
+        </table>
+    </div>
+    <script src="/static/js/jquery-1.8.3.js"></script>
+    <script src="/static/js/v1/admin-shop.js"></script>
+</body>
+</html>

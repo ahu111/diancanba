@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:head-static" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/evaluate.css" />
+    <title>点餐吧</title>
+</head>
+<body>
+    <!-- 订单详情 start-->
+    <div class="navbar navbar-inverse top-navbar-wrap">
+        <div class="top-navbar text-center">
+            <span class="navbar-title">待评价列表</span>
+        </div>
+    </div>
+    <!-- 订单详情end-->
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-heading">
+            <strong class='menu-name'>菜名</strong>
+            <div class='menu-price'>价格</div>
+            <div class='menu-remark'>留言</div>
+            <span class="grade-label">选择评分</span>
+             <div class='clearfix'></div>
+        </li>
+        <volist name="orderList" id="vo" empty="您暂无需要评论的菜单">
+        <li class="list-group-item">
+            <strong class='menu-name'>{$vo['menu_name']}</strong>
+            <div class='menu-price'>￥{$vo['menu_price']}</div>
+            <input type="text" class='menu-remark' maxlength="50" placeholder='可添加评论'/>
+            <div class="grade-list-wrap">
+                <select class="grade-list">
+                    <option value="0">请选择</option>
+                    <option value='5'>5</option>
+                    <option value='4'>4</option>
+                    <option value='3'>3</option>
+                    <option value='2'>2</option>
+                    <option value='1'>1</option>
+                </select>
+            </div>
+            <input type="hidden" value="{$vo['menu_id']|encodeMenuId}" class='menu-id' />
+            <input type="hidden" value="{$vo['order_id']|encodeOrderId}" class='order-id' />
+             <div class='clearfix'></div>
+        </li>
+        </volist>
+    </ul>
+    {:W("menuTab")} 
+    <script type="text/javascript" src="/static/js/zepto.js"></script>
+   <script type="text/javascript" src="/static/js/v1/evaluate.js"></script>
+   {:W("GoogleAnalytics")} 
+</body>
+</html>

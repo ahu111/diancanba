@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:shop-common-header" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/shop-menu.css" />
+</head>
+<body>
+    {:W("shopHeader")}
+     <div class='container'>
+        <ul class="nav nav-pills container shop-sidebar ">
+            <li><a href="/shop"><span class="glyphicon glyphicon-home"></span> 最新订单</a></li>
+            <li><a href="/shop/info"><span class="glyphicon glyphicon-home"></span> 餐厅管理</a></li>
+            <li class="active"><a href="/shop/menu"><span class="glyphicon glyphicon-list"></span> 餐点管理</a></li>
+            <li><a href="/shop/customer"><span class="glyphicon glyphicon-gift"></span> 顾客列表</a></li>
+            <li><a href="/shop/user"><span class="glyphicon glyphicon-user"></span> 商户信息</a></li>
+        </ul>
+         <div class="container">
+            <table class="table table-striped table-bordered">
+                <thead><th colspan="4">添加新的菜式</th></thead>
+                <tbody>
+                    <tr><td class="col-lg-2"><strong>菜名</strong></td><td class="col-lg-3"><strong>图片(最大5M，可选)</strong></td><td class="col-lg-1"><strong>价格(￥)</strong></td><td class="col-lg-1"><strong>操作</strong></td></tr>
+                    <tr><td><input type="text" class="form-control input-sm" id='new-menu-name' placeholder='菜名(建议4-20字)' /></td>
+                        <td><input type="file" name="menu-file" class="form-control new-menu-image input-sm" id='new-menu-image' /><img id="new-image-preview" src="" class="new-image-preview" /></td>
+                        <td><input type="text" class="form-control input-sm" id='new-menu-price' placeholder='整数/小数'/></td>
+                        <td><div><span class="btn btn-success btn-sm" id='add-new-menu-btn'>提交</span></td></tr>
+                </tbody>
+            </table>
+            
+            <ul class="nav menu-list-group">
+                <li class="list-group-item-heading">
+                    <strong class='item-header'><span class="glyphicon glyphicon-book"></span> 菜单列表</strong>
+                </li>
+                <volist name='menuList' id='vo'>
+                <li class="menu-list-item list-group-item">
+                    <div class="item-line-one">
+                         <if condition="$vo['menu_image'] neq ''">
+                            <div class="menu-image-wrap"><img src="{$vo['menu_image']}"/></div>
+                         <else />
+                            <div class="menu-image-wrap"><img src="/static/img/v1/menu_default.png" /></div>
+                         </if>
+                        <strong class='menu-name col-lg-3' title="{$vo['menu_name']}">{$vo['menu_name']}</strong>
+                        <div class="col-lg-3 menu-price-wrap">
+                            <strong>价格(￥)：</strong>
+                            <strong class="menu-price" title="原价">{$vo['price']}</strong>
+                        </div>
+                        <div class="col-lg-2 sold-month pull-left">月售 <strong>{$vo['sold_per_month']}</strong> 份</div>
+                        <div class="col-lg-3 pull-right menu-status input-group">
+                            <label>更改状态</label>
+                            <select class="menu-status-select">
+                                <volist name="menuStatus" id="menuVo">
+                                    <if condition="$menuVo['set_code'] eq $vo['menu_status']">
+                                        <option selected value="{$menuVo['set_code']}">{$menuVo['set_data']}</option>
+                                    <else />
+                                        <option value="{$menuVo['set_code']}">{$menuVo['set_data']}</option>
+                                    </if>
+                                </volist>
+                                <option value='0' class='delete-menu'>删除</option>
+                            </select>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="item-line-two">
+                        <div class="input-group col-lg-2 pull-left">
+                           <label>菜单序号</label>
+                           <input type="text" class="menu_index" placeholder="整数" value="{$vo['menu_index']}">
+                        </div>
+                        <div class="input-group col-lg-2 pull-left">
+                           <label>打折特价菜</label>
+                           <if condition="$vo['discounted'] eq 1">
+                                <input type="checkbox" class="discount-check" checked='checked' />
+                           <else />
+                                <input type="checkbox" class="discount-check"  />
+                           </if>
+                        </div>
+                        <div class="input-group col-lg-2 pull-left">
+                           <label>招牌菜</label>
+                           <if condition="$vo['special'] eq 1">
+                                <input type="checkbox" class="special-check" checked='checked' />
+                           <else />
+                                <input type="checkbox" class="special-check"  />
+                           </if>
+                        </div>
+                        <div class="input-group col-lg-2 pull-left">
+                           <label>新菜</label>
+                           <if condition="$vo['new_menu'] eq 1">
+                                <input type="checkbox" class="new-menu-check" checked='checked' />
+                           <else />
+                                <input type="checkbox" class="new-menu-check"  />
+                           </if>
+                        </div>
+                        <span class="btn btn-primary pull-right update-menu-info btn-sm">更改信息</span>
+                        <div class="clearfix"></div>
+                    </div>
+                    <input type="hidden" class="menu_id" value="{$vo['menu_id']|encodeMenuId}" />
+                </li>
+                </volist>
+                
+                <li class="menu-info-update-wrap list-group-item">
+                    <div class="form-group password-change-wrap">
+                        
+                        <label for="update-menu-name" class="col-lg-1 control-label">新菜名</label>
+                        <div class="col-lg-2">
+                            <input type="text" class="form-control input-sm" id="update-menu-name" value="" placeholder="菜名(建议4-20字)">
+                        </div>
+                        <label for="update-menu-image" class="col-lg-1 control-label">图片(可选)</label>
+                        <div class="col-lg-2">
+                            <input type="file" class="form-control update-menu-price input-sm"  name="update-menu-price" id="update-menu-image">
+                        </div>
+                        <img id="update-image-preview" src="" class="update-image-preview" />
+                        <label for="update-menu-price" class="col-lg-1 control-label">新价(￥)</label>
+                        <div class="col-lg-2">
+                            <input type="text" class="form-control  input-sm" id="update-menu-price" placeholder="新的价格" value="">
+                        </div>
+                        <button class="btn btn-primary btn-sm" id="menu-update-confirm">确认修改</button>
+                    </div>
+                    <input type="hidden" value="" id="update-menu-id"/>
+                    <div class="clearfix"></div>
+                </li>
+            </ul>
+
+        </div>
+     </div>
+     <script type="text/javascript" src="/static/js/jquery-1.8.3.js"></script>
+     <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+     <script type="text/javascript" src="/static/js/ajaxfileupload.js"></script>
+     <script type="text/javascript" src="/static/js/v1/shop-menu.js?v=20140327"></script>
+     {:W("GoogleAnalytics")} 
+</body>
+</html>

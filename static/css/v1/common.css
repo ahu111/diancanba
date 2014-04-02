@@ -1,0 +1,103 @@
+.top-navbar-wrap{
+    margin-bottom:2px;
+    position: relative;
+}
+
+.top-navbar .navbar-title{
+    display: inline-block;
+    padding:14.5px 15px;
+    font-size:19px;
+    line-height:21px;
+    color:#fff;
+    margin:0 auto;
+    max-width:300px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis
+}
+body{
+    padding-bottom:50px
+}
+
+.spantext {
+    font-size: 75%;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-weight: bold;
+    color: #222;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.span-warning {
+    background-color: #ff7518;
+    font-size: 75%;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.span-primary {
+    background-color: #006BD6;
+    font-size: 75%;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.span-danger {
+    background-color: #ff0039;
+    font-size: 75%;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.span-default {
+    background-color: #222;
+    font-size: 75%;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.span-info {
+    background-color: #9954bb;
+    font-size: 75%;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.span-success {
+    background-color: #3fb618;
+    font-size: 75%;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}

@@ -1,0 +1,81 @@
+.user-info-wrap > li{
+    padding: 13px 10px;
+    border-bottom: 1px solid #ddd
+}
+
+.user-name-change, .user-name-submit-btn {
+    margin-left: 15px;
+    font-size: 10px;
+}
+
+.user-name-input, .user-name-submit-btn {
+    display: none;
+    outline: none;
+}
+
+.user-name-input {
+    max-width: 150px;
+    padding-left: 3px;
+    height: 25px;
+}
+
+.user-info-wrap .user-password-change-wrap {
+    text-align: right;
+    border-bottom: 2px solid #00AAFF;
+}
+
+.user-password-change {
+    color: #0099ff;
+    padding: 6px 10px;
+}
+
+.user-address-manage > li {  
+    border-bottom: 1px solid #ddd;
+}
+
+.user-address-manage .user-address-add-wrap {
+    text-align: right;
+    padding: 13px 10px;
+    border-bottom: 2px solid #00AAFF;
+}
+
+.alert-user-address {
+    display: block;
+    margin-bottom: 0px;
+    margin-top: 1px;
+}
+
+.user-address-input, .user-phone-input, .user-order-name-input {
+    height: 30px;
+    max-width: 200px;
+}
+
+.user-address-add, .user-address-change-btn {
+    color: #0099ff;
+}
+
+.list-title-wrap {
+    padding: 13px 10px;
+}
+
+.list-title-wrap input, .user-address-submit{
+    display: none;
+    outline: none;
+}
+
+.user-address-manage .info-add-wrap {
+    display: none;
+}
+
+.box-password-change {
+    border-top: 1px solid #ddd;
+    margin-top: 2px;
+    padding-top: 5px;
+    display: none;
+}
+
+li > a.login-out {
+   display: inline;
+   color: #0099ff;
+   margin: 6px 6px 0 0 
+}

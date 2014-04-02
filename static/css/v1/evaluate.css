@@ -1,0 +1,37 @@
+.menu-name {
+    display: block;
+    float: left;
+    width: 110px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.menu-remark {
+    display: block;
+    float: left;
+    margin-left: 10px;
+    width: 80px;
+}
+
+.menu-price {
+    display: block;
+    float: left;
+    width: 50px;
+    color: #ff0000;
+}
+
+.list-group-item-heading {
+    background: #F4F4F4;
+}
+
+.grade-label {
+    display: block;
+    float: right;
+}
+
+.grade-list {
+    display: block;
+    width: 40px;
+    float: right;
+}

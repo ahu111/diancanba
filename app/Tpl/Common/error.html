@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:head-static" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/order_detail.css" />
+    <title>点餐吧</title>
+    <meta http-equiv="refresh" content="3;url={$jumpUrl}">
+</head>
+<body>
+    <!-- 订单详情 start-->
+    <div class="navbar navbar-inverse top-navbar-wrap">
+        <div class="top-navbar text-center">
+            <span class="navbar-title">{$title}</span>
+        </div>
+    </div>
+    
+    <div class="alert alert-warning text-center">{$message},<a href="{$jumpUrl}" style="text-decoration: underline">3秒后自动跳转</a></div>
+</body>
+</html>

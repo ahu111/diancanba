@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:head-static" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/order_list.css" />
+    <title>点餐吧</title>
+</head>
+<body>
+    <!-- 订单详情 start-->
+    <div class="navbar navbar-inverse top-navbar-wrap">
+        <div class="top-navbar text-center">
+            <span class="navbar-title">我的订单</span>
+        </div>
+    </div>
+<if condition="($_SESSION['order'] neq null || $_SESSION['order'] neq '')">
+    <div class="alert alert-warning text-center">您有未完成的订单！<a href="/rest/detail/{$_SESSION['order']['shopId']}" class="go-rest-list">前往餐厅 >>></a></div>
+</if>
+
+<if condition="($orderList eq null AND $_SESSION['order'] eq null || $_SESSION['order'] eq '')">
+    <div class="alert alert-warning text-center">您暂无历史订单。<a href="/rest" class="go-rest-list">前往订餐 >>></a></div>
+<else />
+
+<volist name="orderList" id="vo">
+    <a href="/order/detail/{$vo['oid']|encodeOrderId}"> 
+           <table class="table table-striped table-hover">
+             <thead>
+                 <tr class="order-time"><td colspan="2">{$vo['date']}</td><td><div class="order-arrow-right"></div></td></tr>
+                    <tr><th>餐厅名称</th><th class="order-price-title">订单金额</th><th>订单状态</th></tr>
+            </thead> 
+            <tbody>
+                <tr><td class="order-bus-name">
+                        <span>{$vo['shop_name']}</span>
+                    </td>
+                    <td class="order-price">￥{$vo['order_price']}</td>
+                    <td class="order-status">
+                        <if condition="($vo['order_status'] eq 0)">
+                            <!--已取消-->
+                            <span class="span-default">{$orderStatus[0]['set_data']}</span>
+                        <elseif condition="($vo['order_status'] eq 1)" />
+                            <!--交易完成-->
+                            <span class="span-success">{$orderStatus[1]['set_data']}</span>
+                        <elseif condition="($vo['order_status'] eq 2)" />
+                            <!--等待商家确认-->
+                            <span class="span-warning">{$orderStatus[2]['set_data']}</span>
+                        <elseif condition="($vo['order_status'] eq 3)" />
+                            <!--正在送餐-->
+                            <span class="span-success">{$orderStatus[3]['set_data']}</span>
+                        <elseif condition="($vo['order_status'] eq 4)" />
+                            <!--待评价-->
+                            <span class="span-danger">{$orderStatus[4]['set_data']}</span>
+                        </if>
+                    </td></tr>
+            </tbody>
+        </table>
+     </a>
+</volist>
+</if>
+    <!-- 订单列表 end-->
+    <div class="btn-group btn-group-justified navbar-fixed-bottom menu-tab">
+        <a href="/order" class="btn btn-primary menu-tab-order active" role="button">我的订单</a>
+        <a href="/rest" class="btn btn-primary menu-tab-rest-list" role="button">餐厅列表</a>
+        <a href="/user" class="btn btn-primary menu-tab-order" role="button">个人中心</a>
+    </div>
+    {:W("GoogleAnalytics")} 
+</body>
+</html>

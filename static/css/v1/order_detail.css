@@ -1,0 +1,102 @@
+.shop-logo {
+    display: block; 
+    float: left;
+    width: 65px;
+    height: 65px;
+}
+.shop-info {
+    display: block;
+    float: left;
+    height: 65px;
+    position: relative;
+    margin-left: 10px;
+}
+
+
+ .shop-name {
+    display: block;
+    font-size: 16px;
+    width: 220px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #333;
+}
+
+.shop-wrap .shop-phone {
+    color: #0099ff;
+    font-size: 14px;
+}
+
+.shop-short-intr {
+    position: absolute;
+    font-size: 14px;
+    bottom: 0px;
+    max-width: 220px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.shop-wrap {
+    border-bottom: 1px solid #cccccc;
+    padding: 5px 10px;
+}
+
+.shop-wrap:after {
+    display: block;
+    visibility: visible;
+    height: 0;
+    content: " ";
+    clear: both;
+}
+
+.order-status {
+    margin-top: 10px;
+}
+.order-status .labeltext{
+    color: #000;
+}
+.order-status span {
+    margin-right: 10px;
+}
+
+.order-detail-table {
+    margin: 15px auto 0px;
+    border-bottom: 2px solid #00ccff;
+}
+
+order-detail-table th {
+    word-break: keep-all;
+}
+
+.order-detail-name {
+    width: 50%;
+}
+
+.order-detail-title {
+    background: #00ccff;
+    color: #fff;
+}
+
+.order-price-wrap {
+    text-align: right;
+}
+
+.order-price {
+    color: #ff0033;
+}
+
+.order-other-info li {
+    padding: 10px 8px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.order-other-info .other-title{
+    display: inline;
+}
+
+.pay-when-arrive {
+    border: 2px solid #ff0033;
+    padding: 5px 10px;
+}

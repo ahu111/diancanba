@@ -1,0 +1,109 @@
+.rest-list .shop-intro-wrap {
+    position: relative;
+    padding: 5px;
+    border-bottom: 1px solid #cccccc;
+}
+.rest-list .shop-intro-wrap:visited , .rest-list .shop-intro-wrap:hover, .rest-list .shop-intro-wrap:active{
+    background: #fff;
+}
+
+.shop-logo {
+    display: block;
+    float: left;
+    width: 75px;
+    height: 75px;
+    margin-right: 5px;
+}
+
+.shop-intro {
+    width: 220px;
+    float: left;
+    height: 75px;
+    position: relative;
+}
+
+.shop-intro .shop-name {
+    display: block;
+    font-size: 16px;
+    width: 160px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #333;
+}
+
+.shop-intro-other {
+    color: #0099ff;
+    position: absolute;
+    bottom: 0;
+}
+
+.shop-intro-content {
+    color: #0099ff;
+    width: 210px;
+    font-size: 13px;
+    margin-top: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.go-rest-detail {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    width: 15px;
+    height: 30px;
+    background: url(/static/img/v1/sprite.png) no-repeat 0px -2px;
+}
+
+.add-on {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.add-on > img {
+    width: 20px;
+}
+
+.shop-intro-other .shop-grade {
+    padding-left: 18px;
+    background: url(/static/img/v1/sprite.png) no-repeat -3px -171px;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.shop-intro-other .shop-status {
+    padding-left: 18px;
+    background: url(/static/img/v1/sprite.png) no-repeat -3px -144px;
+    font-size: 12px;
+}
+
+.top-navbar {
+    position: relative;
+}
+
+.change-area {
+    display: block;
+    color: #f5f5f5;
+    font-size: 14px;
+    padding: 5px 10px;
+    position: absolute;
+    right: 4px;
+    top: 10px;
+}
+
+.change-area:visited, .change-area:hover, .change-area:active {
+    text-decoration: none;
+}
+
+.shop-total-number {
+    display: block;
+    color: #f5f5f5;
+    font-size: 14px;
+    padding: 5px 10px;
+    position: absolute;
+    left: 2px;
+    top: 10px;
+}

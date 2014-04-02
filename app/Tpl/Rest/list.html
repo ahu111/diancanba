@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:head-static" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/rest_list.css" />
+    <title>点餐吧</title>
+</head>
+<body>
+     <!-- 餐厅列表 start-->
+    <div class="navbar navbar-inverse top-navbar-wrap">
+        <div class="top-navbar text-center">
+            <span class="shop-total-number">附近共{$shopList|count}家</span>
+            <span class="navbar-title">餐厅列表</span>
+            <a href="/area" class="change-area">[切换地点]</a>
+        </div>
+    </div>
+    <!-- 餐厅列表end-->
+
+    <ul class="nav rest-list">
+        <volist name="shopList" id="vo">
+        <li>
+            <a href="/rest/detail/{$vo['shop_id']|encodeShopId}" 
+                        <if condition="($vo['shop_status'] neq 1)">
+                            style="opacity:0.6"
+                        </if>  class="shop-intro-wrap">
+                <img class="shop-logo" src="{$vo['shop_image']}" alt="{$vo['shop_name']}" />
+                <div class="shop-intro">
+                    <strong class="shop-name">{$vo['shop_name']}</strong>
+                    <div class="shop-intro-content">
+                       {$vo['shop_introduce']}</div>
+                    <div class="shop-intro-other">
+                        <!--span class="shop-customer">10900</span-->
+                        <span class="shop-grade">{$vo['shop_average_grade']}分</span>
+                        <if condition="($vo['shop_status'] eq 1)">
+                            <span class="shop-status">正在营业</span>
+                        <elseif condition="($vo['shop_status']) eq 2" />
+                            <span class="shop-status">已打烊</span>
+                        <elseif condition="($vo['shop_status']) eq 3" />
+                            <span class="shop-status">休息中</span>
+                        <elseif condition="($vo['shop_status']) eq 0" />
+                            <span class="shop-status">暂停营业</span>
+                        </if>
+                    </div>
+                </div>
+                <div class="go-rest-detail"></div>
+                <div class="add-on">
+                </div>
+                <div class="clearfix"></div>
+             </a>
+        </li>
+        </volist>
+    </ul>
+    <div class="btn-group btn-group-justified navbar-fixed-bottom menu-tab">
+        <a href="/order" class="btn btn-primary menu-tab-order" role="button">我的订单</a>
+        <a href="/rest" class="btn btn-primary menu-tab-rest-list active" role="button">餐厅列表</a>
+        <a href="/user" class="btn btn-primary menu-tab-order" role="button">个人中心</a>
+    </div>
+    {:W("GoogleAnalytics")} 
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:shop-common-header" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/shop-info.css" />
+</head>
+<body>
+    {:W("shopHeader")}
+     <div class='container'>
+        <ul class="nav nav-pills container shop-sidebar ">
+            <li><a href="/shop/"><span class="glyphicon glyphicon-home"></span> 最新订单</a></li>
+            <li class="active"><a href="/shop/info/"><span class="glyphicon glyphicon-home"></span> 餐厅管理</a></li>
+            <li><a href="/shop/menu/"><span class="glyphicon glyphicon-list"></span> 餐点管理</a></li>
+            <li><a href="/shop/customer/"><span class="glyphicon glyphicon-gift"></span> 顾客列表</a></li>
+             <li><a href="/shop/user/"><span class="glyphicon glyphicon-user"></span> 商户信息</a></li>
+        </ul>
+         <div class="container">
+             <form class="form form-inline">
+                 <table class="table table-bordered table-striped shop-info-wrap">
+                     <tr><td class="col-lg-2"><strong><span class="glyphicon glyphicon-picture"></span> 餐厅Logo</strong></td>
+                         <td class="col-lg-4" class="shop-image-wrap">
+                             <img class="shop-image" src="{$shopInfo['shop_image']}" alt="{$shopInfo['shop_name']}" />
+                             <div class="shop-image-upload-wrap">
+                                 <input type="file" name="shop-image" class="shop-image-input" id="shop-image-input"/>
+                                 <span class="shop-image-submit btn btn-primary btn-sm">确认修改</span>
+                             </div>
+                         </td>
+                         <td class="col-lg-2"><strong><span class="glyphicon glyphicon-edit"></span>餐厅名称</strong></td>
+                         <td class="col-lg-4 shop-name-wrap">
+                             <strong class="shop-name-text">{$shopInfo['shop_name']}</strong>
+                             <div class="shop-name-input-wrap">
+                                 <input type="text" class="shop-name-input form-control" placeholder="建议餐厅名字长度1-16位" value="{$shopInfo['shop_name']}" />
+                                 <span class="btn btn-sm btn-primary shop-name-submit">确认</span>
+                             </div>
+                         </td></tr>
+                     <tr><td><strong><span class="glyphicon glyphicon-shopping-cart"></span>送餐起步价</strong></td>
+                         <td class="shop-start-price-wrap">
+                             <span class="shop-start-price-text">{$shopInfo['shop_start_price']}</span>元
+                             <div class="shop-start-price-input-wrap">
+                                 <input type="text" placeholder="整数/小数" value="{$shopInfo['shop_start_price']}" class="shop-start-price-input form-control" />
+                                 <span class="btn btn-primary btn-sm shop-start-price-submit">确认</span>
+                             </div>
+                         </td>
+                         <td><strong><span class="glyphicon glyphicon-phone"></span>订餐电话</strogn></td>
+                         <td class='shop-phone-wrap'>
+                             <span class="shop-phone-text">{$shopInfo['shop_phone']}</span>
+                             <div class="shop-phone-input-wrap">
+                                 <input type="text" placeholder="订餐电话" value="{$shopInfo['shop_phone']}" class="shop-phone-input form-control" />
+                                 <span class="btn btn-primary btn-sm shop-phone-submit">确认</span>
+                             </div>
+                         </td></tr>
+                         
+                         <tr><td><strong><span class="glyphicon glyphicon-map-marker"></span>餐厅地址</strong></td>
+                         <td class="shop-address-wrap">
+                             <span class="shop-address-text">{$shopInfo['shop_address']}</span>
+                             <div class="shop-address-input-wrap">
+                                 <input type="text" placeholder="餐厅的地址" value="{$shopInfo['shop_address']}" class="shop-address-input form-control" />
+                                 <span class="btn btn-primary btn-sm shop-address-submit">确认</span>
+                             </div>
+                         </td>
+                         <td><strong><span class="glyphicon glyphicon-time"></span>营业时间段</strogn></td>
+                         <td class='shop-time-wrap'>
+                             <span class="shop-time-text">{$shopInfo['shop_open_time']}</span>
+                             <div class="shop-time-input-wrap">
+                                 <input type="text" placeholder="如：10:00-15:00, 17:00 21:00" value="{$shopInfo['shop_open_time']}" class="shop-time-input form-control" />
+                                 <span class="btn btn-primary btn-sm shop-time-submit">确认</span>
+                             </div>
+                         </td></tr>
+                         
+                                 <tr><td><strong><span class="glyphicon glyphicon-tag"></span>餐厅简介</strong></td>
+                             <td class='shop-introduce-wrap'>
+                                 <span class="shop-introduce-text">{$shopInfo['shop_introduce']}</span>
+                                <div class="shop-introduce-input-wrap">
+                                    <textarea type="text" placeholder="餐厅的介绍，200字以内" class="shop-introduce-input form-control" >{$shopInfo['shop_introduce']}</textarea>
+                                    <span class="btn btn-primary btn-sm shop-introduce-submit">确认</span>
+                                </div>      
+                             </td>
+                         <td><strong><span class="glyphicon glyphicon-volume-up"></span>餐厅通告</strong></td>
+                         <td class='shop-notify-wrap'>
+                             <span class="shop-notify-text">{$shopInfo['shop_notify']}</span>
+                                <div class="shop-notify-input-wrap">
+                                    <textarea type="text" placeholder="餐厅通告，200字以内" class="shop-notify-input form-control" >{$shopInfo['shop_notify']}</textarea>
+                                    <span class="btn btn-primary btn-sm shop-notify-submit">确认</span>
+                                </div>
+                         </td>
+                     </tr>
+                    
+                     <tr><td><strong><span class="glyphicon glyphicon-plane"></span>送餐时间</strong></td>
+                         <td class='shop-speed-wrap'>
+                             <span class="shop-speed-text">{$shopInfo['shop_speed']}</span>
+                             <div class="shop-speed-input-wrap">
+                                 <input type="text" placeholder="如：30分钟" value="{$shopInfo['shop_speed']}" class="shop-speed-input form-control" />
+                                 <span class="btn btn-primary btn-sm shop-speed-submit">确认</span>
+                             </div>
+                         </td>
+                         <td><strong><span class="glyphicon glyphicon-off"></span>餐厅状态</strong></td><td>
+           
+                             <div class="radio">
+                                 <label for="shop-open">开启</label>
+                                 <if condition="$shopInfo['shop_status'] eq 1"> 
+                                    <input type="radio" checked='checked' id="shop-pause" name="shop-status" class='shop-status' value='1'/>
+                                 <else />
+                                    <input type="radio" id="shop-pause" name="shop-status" class='shop-status' value='1'/>
+                                 </if>
+                             </div>
+                             <div class="radio">
+                                 <label for="shop-status">餐厅打烊</label> 
+                                 <if condition="$shopInfo['shop_status'] eq 2"> 
+                                    <input type="radio" checked='checked' id="shop-pause" name="shop-status" class='shop-status' value='2'/>
+                                 <else />
+                                    <input type="radio" id="shop-pause" name="shop-status" class='shop-status' value='2'/>
+                                 </if>
+                             </div>
+                             
+                             <div class="radio">
+                                 <label for="shop-status">餐厅休息中</label> 
+                                 <if condition="$shopInfo['shop_status'] eq 3"> 
+                                    <input type="radio" checked='checked' id="shop-pause" name="shop-status" class='shop-status' value='3'/>
+                                 <else />
+                                    <input type="radio" id="shop-pause" name="shop-status" class='shop-status' value='3'/>
+                                 </if>
+                             </div>
+                             
+                             <div class="radio">
+                                 <label for="shop-close">关闭</label> 
+                                 <if condition="$shopInfo['shop_status'] eq 0"> 
+                                    <input type="radio" id="shop-close" checked='checked' name="shop-status" class='shop-status' value='0'/>
+                                 <else />
+                                    <input type="radio" id="shop-close" name="shop-status" class='shop-status' value='0'/>
+                                 </if>
+                             </div>
+                         </td></tr>
+                 </table>
+             </form>
+         </div>
+     </div>
+     <script type="text/javascript" src="/static/js/jquery-1.8.3.js"></script>
+     <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+     <script type="text/javascript" src="/static/js/ajaxfileupload.js"></script>
+     <script type="text/javascript" src="/static/js/v1/shop-info.js?v=20140327"></script>
+     {:W("GoogleAnalytics")} 
+</body>
+</html>

@@ -1,0 +1,14 @@
+.shop-sidebar {
+    border-bottom: 1px solid #ccccff;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+}
+
+.shop-sidebar > li{
+    float: left;
+    font-size: 12px;
+}
+
+.top-navbar-wrap{margin-bottom:2px}
+.alert.shop-global-alert{display:none}
+.top-navbar .navbar-title{display:block;padding:14.5px 15px;font-size:19px;line-height:21px;color:#fff;margin:0 auto;max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}body{padding-bottom:40px}

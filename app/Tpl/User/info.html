@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:head-static" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/user-info.css" />
+    <title>点餐吧</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse top-navbar-wrap">
+        <div class="top-navbar text-center">
+            <span class="navbar-title">个人信息</span>
+            <input type="hidden" value="{$shopDetail['shop_id']|encodeShopId}" id="shopIndex" />
+        </div>
+    </div>
+    <ul class="nav user-info-wrap">
+        <li class="user-name">
+            <strong>用户名：</strong>
+            <span  id="user-name-text">{$userInfo['nickname']}</span>
+            <if condition="($userInfo['is_name_change']) eq 0">
+                <input id="user-name-input" class="user-name-input form-control" type="text" placeholder="2-14位中文/英文" value="{$userInfo['nickname']}" />
+                <span class="btn btn-warning btn-sm user-name-change" id="user-name-change">更改用户名</span>
+                <span class="btn btn-success btn-sm user-name-submit-btn" id="user-name-submit-btn">确认修改</span>
+            </if>
+        </li>
+        <li><strong>我的订餐积分：</strong><span><font color="#ff0000">{$userInfo['user_credit']}</font> (可抵用现金)</span></li>
+        <li class="user-password-change-wrap">
+            <a href='/user/login_out/' class="login-out" >切换账户</a>
+            <span class="user-password-change" id="user-password-change">更改密码</span>
+            <div class="box-password-change">
+                <div class="form-group text-left">
+                    <label class="control-label">旧密码(随机用户初始密码为123456)</label>
+                    <input type="password" class="form-control" id="box-old-password" placeholder="首次修改、初始密码为123456"/>
+                </div>
+                <div class="form-group text-left">
+                    <label class="control-label">新密码</label>
+                    <input type="password" class="form-control" id="box-new-password" placeholder="6-16位英文/下划线/数字组成"/>
+                </div>
+                <div class="form-group text-left">
+                    <span class="btn btn-primary" id="box-password-change-submit">提交</span>
+                    <span class="btn btn-default" id="box-password-change-cancel">取消</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul class="nav user-address-manage">
+        <if condition="($userInfo['address'] eq '' OR $userInfo['address'] eq null)">
+            <li>
+                <span class="alert alert-warning  alert-dismissable alert-user-address">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <span>您还没有送餐地址。<strong>&gt;&gt;&gt; 点击下面添加</strong>
+                </span>
+            </li>
+            <li class="user-address-add-wrap"><span class="user-address-add" id="user-address-add">添加送餐信息</span></li>
+            <li class="list-title-wrap info-add-wrap">
+                <strong>联系地址：</strong>
+                <span class="list-info-text user-address-text"></span><input class="user-address-input form-control" id="user-address-input" type="text" value="" placeholder="5-30个字符"/>
+            </li>
+            <li class="list-title-wrap info-add-wrap">
+                <strong>联系手机：</strong>
+                <span class="list-info-text user-phone-text"></span><input class="user-phone-input form-control" id="user-phone-input" type="text" value="" placeholder="10-15位数字"/>
+            </li>
+            <li class="list-title-wrap info-add-wrap">
+                <strong>联系人：</strong>
+                <span class="list-info-text user-name-text"></span><input class="user-order-name-input form-control" id="user-order-name-input" type="text" value="" placeholder="2-10个字符"/>
+            </li>
+            <li class="list-title-wrap info-add-wrap user-address-add-wrap">
+                <span class="btn btn-success btn-sm user-address-submit" id="user-address-submit">确认提交</span>
+            </li>
+        <else />
+            <li class="list-title-wrap">
+                <strong>联系地址：</strong>
+                <span class="list-info-text user-address-text">{$userInfo['address']}</span>
+                <input class="user-address-input form-control" id="user-address-input" type="text" value="{$userInfo['address']}" />
+            </li>
+            <li class="list-title-wrap">
+                <strong>联系电话：</strong>
+                <span class="list-info-text user-phone-text">{$userInfo['phone']}</span>
+                <input class="user-phone-input form-control" id="user-phone-input" type="text" value="{$userInfo['phone']}" />
+            </li>
+            <li class="list-title-wrap">
+                <strong>联系人：</strong>
+                <span class="list-info-text user-name-text">{$userInfo['user_name']}</span>
+                <input class="user-order-name-input form-control" id="user-order-name-input" type="text" value="{$userInfo['user_name']}" />
+            </li>
+            <li class="user-address-add-wrap">
+                <span class="list-info-text user-address-change-btn" id="user-address-change-btn">修改送餐信息</span>
+                <span class="btn btn-success btn-sm user-address-submit" id="user-address-submit">确认修改</span>
+            </li>
+        </if>
+        
+    </ul>
+    {:W("menuTab")} 
+    <script type="text/javascript" src="/static/js/zepto.js"></script>
+    <script type="text/javascript" src="/static/js/alert.js"></script>
+    <script type="text/javascript" src="/static/js/v1/user-info.js"></script>
+    {:W("GoogleAnalytics")} 
+</body>
+</html>

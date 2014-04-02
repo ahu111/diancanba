@@ -1,0 +1,126 @@
+.new-image-preview {
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+    display: none;
+    float: left;
+}
+
+.new-menu-image {
+    display: block;
+    float: left;
+    max-width: 220px;
+}
+
+.menu-list-item {
+    border-bottom: 1px solid #ddd;
+    border-top: 2px solid #3CCBFF;
+    margin-top: 10px;
+}
+
+.menu-list-item:hover {
+    background: #F9F9F9;
+}
+
+.menu-image-wrap {
+    float: left;
+    width: 80px;
+}
+
+.menu-image-wrap > img {
+    width: 60px;
+    height: 60px;
+}
+
+.menu-name {
+    float: left;
+    margin-top: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.menu-price-wrap {
+    float: left;
+    margin-top: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.menu-price {
+    color: #ff0000;
+}
+
+.menu-operator {
+    width: 100px;
+    margin-top: 10px;
+}
+
+.sold-month {
+    margin-top: 20px;
+}
+
+.menu-status {
+    margin-top: 10px;
+}
+
+.menu_index {
+    width: 50px;
+}
+
+.delete-menu {
+    color: #fff;
+    background: #ff0000;
+}
+
+.list-group-item-heading {
+    padding-bottom: 5px;
+}
+
+.item-header {
+    font-size: 18px;
+}
+
+.item-line-two {
+    padding-top: 15px;
+    margin-top: 10px;
+    border-top: 1px solid #CECECE;
+}
+
+.menu-list-name {
+    margin-top: 10px;
+}
+
+.menu-list-price {
+    margin-top: 10px;
+}
+
+li.menu-info-update-wrap {
+    background: beige;
+    border: 2px solid #ddd;
+    margin-top: 5px;
+    margin-bottom: 35px;
+    display: none;
+}
+
+
+
+.menu-info-update-wrap label {
+    margin-top: 10px;
+}
+
+.update-image-preview {
+    display: block;
+    float: left;
+    width: 60px;
+    height: 60px;
+}
+
+.update-menu-info {
+    display: none;
+}
+
+.menu-info-update-wrap .control-label {
+    font-size: 13px;
+}

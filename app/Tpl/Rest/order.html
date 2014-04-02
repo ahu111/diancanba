@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:head-static" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/rest_order.css" />
+    <title>点餐吧</title>
+</head>
+<body>
+     <!-- 订单详情 start-->
+    <div class="navbar navbar-inverse top-navbar-wrap">
+        <div class="top-navbar text-center">
+            <span class="navbar-title">提交订单</span>
+        </div>
+    </div>
+     <!--订单详情-->
+     <div class="shop-wrap">
+        <img class="shop-logo" src="{$shopDetail['shop_image']}" alt="{$shopDetail['shop_name']}" />
+        <div class='shop-info'>
+            <strong class="shop-name">{$shopDetail['shop_name']}</strong>
+            <div class="shop-phone">{$shopDetail['shop_phone']}(催单电话)</div>
+            <div class="shop-intro">{$shopDetail['shop_introduce']}</div>
+        </div>
+    </div>
+    <ul class="order-detail-table list-group">
+        <li class="order-detail-title">
+            <strong class="list-group-line-first">美食</strong><strong class="list-group-line-second">单价</strong><strong class="list-group-line-third">数量</strong><strong class="list-group-line-fourth">总价</strong>
+        </li>
+        <volist name="orderList" id="vo">
+        <if condition="(is_array($vo) neq 0) AND $vo['menuId'] neq null">
+            <li><strong class="order-detail-name list-group-line-first">{$vo['menuName']}</strong><span class="list-group-line-second">￥{$vo['menuPrice']}</span><span class="list-group-line-third">{$vo['menuCount']}</span><span class="list-group-line-fourth">￥{$vo['menuPrice'] * $vo['menuCount']}</span></li>
+        </if>
+        </volist>
+        <li class="order-price-wrap">
+                <div class="order-total-show">
+                    <strong>共 {$orderList['totalNumber']} 份， 总计: </strong>
+                    <strong class="order-price-total">￥{$orderList['totalPrice']}</strong>
+                </div>
+        </li>
+    </ul>
+     <div class="clearfix"></div>
+    <ul class="nav order-other-info">
+        <li>
+            <strong class="other-title">联系地址：</strong>
+            <span id="user-address-text">{$userInfo['address']}</span>
+            <input id="user-address-input" class="form-control" type="text" hidden value="{$userInfo['address']}"  placeholder="5-30个字符" />
+            <span class="address-modify" id="address-modify">[添加/修改]</span>
+        </li>
+        <li>
+            <strong class="other-title">联系手机：</strong>
+            <span id="user-phone-text">{$userInfo['phone']}</span>
+            <input id="user-phone-input" class="form-control" type="text" hidden value="{$userInfo['phone']}"  placeholder="手机号码" />
+            <span class="phone-modify" id="phone-modify">[添加/修改]</span>
+        </li>
+        <li>
+            <strong class="other-title">联系人：</strong>
+            <span id="user-name-text">{$userInfo['user_name']}</span>
+            <input id="user-name-input" class="form-control" type="text" hidden value="{$userInfo['user_name']}" placeholder="2-10个字符" />
+            <span class="name-modify" id="name-modify">[添加/修改]</span>
+        </li>
+        <li><strong class="other-title">支付方式：</strong><span class="pay-when-arrive">餐到付款</span></li>
+        <li>
+            <div class="order-user-remark">
+                <label>备注</label>
+                <input type="text" id="user-remark" class="form-control user-remark" placeholder="给餐厅留言(可选)" />
+            </div>
+        </li>
+        <li class="order-check-wrap">
+        <if condition="$shopDetail['shop_status'] eq 2">
+            <a href="#" class="btn btn-info btn-sm">已经打烊</a>
+        <else />
+            <a href="#" class="btn btn-success btn-sm" id="order-submit">确认下单</a>
+        </if>
+            <a href="/rest/detail/{$_SESSION['order']['shopId']}" class="btn btn-danger btn-sm back-change">返回修改</a>
+        </li>
+    </ul>
+   {:W("menuTab")} 
+   <script type="text/javascript" src="/static/js/zepto.js"></script>
+   <script type="text/javascript" src="/static/js/v1/rest_order.js"></script>
+   {:W("GoogleAnalytics")} 
+</body>
+</html>

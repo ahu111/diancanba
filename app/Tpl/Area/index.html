@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:head-static" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/area.css" />
+    <title>点餐吧</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse top-navbar-wrap">
+        <div class="top-navbar text-center">
+            <span class="navbar-title">选择区域</span>
+        </div>
+    </div>
+    <div class="container">
+        <if condition="$_SESSION['areaId'] neq ''">
+            <div class="current-area">当前区域：{$areaName}</div>
+        </if>
+        <form class="form form-horizontal form-area">
+            <div class="form-group">
+                <label>选择省份</label>
+                <select class="form-control" id='province-select'>
+                     <if condition="$_SESSION['provinceId'] eq ''">
+                        <option value='0'>请选择</option>
+                    </if>
+                    <volist name="provinceList" id="pro">
+                        <if condition="$pro['area_id'] eq $provinceId">
+                        <option selected="selected" value="{$pro['area_id']}">{$pro['area_name']}</option>
+                        <else />
+                        <option value="{$pro['area_id']}">{$pro['area_name']}</option>
+                        </if>
+                    </volist>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>选择城市</label>
+                <select class="form-control" id='city-select'>
+                     <if condition="$_SESSION['areaId'] eq null">
+                        <option value='0'>请选择</option>
+                    </if>
+                    <volist name="cityList" id="city">
+                        <if condition="$city['area_id'] eq $cityId">
+                        <option selected="selected" value="{$city['area_id']}">{$city['area_name']}</option>
+                        <else />
+                        <option value="{$city['area_id']}">{$city['area_name']}</option>
+                        </if> 
+                    </volist>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>选择范围</label>
+                <select class="form-control" id='dist-select'>
+                     <if condition="$_SESSION['areaId'] eq null">
+                        <option value='0'>请选择</option>
+                    </if>
+                    <volist name="districtList" id="dist">
+                        <if condition="$dist['area_id'] eq $districtId">
+                        <option selected="selected" value="{$dist['area_id']}">{$dist['area_name']}</option>
+                        <else />
+                        <option value="{$dist['area_id']}">{$dist['area_name']}</option>
+                        </if> 
+                    </volist>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>选择附近地点</label>
+                <select class="form-control" id='area-select'>
+                    <if condition="$_SESSION['areaId'] eq ''">
+                        <option value='0'>请选择</option>
+                    </if>
+                    <volist name="areaList" id="area">
+                        <if condition="$area['area_id'] eq $_SESSION['areaId']">
+                        <option selected="selected" value="{$area['area_id']}">{$area['area_name']}</option>
+                        <else />
+                        <option value="{$area['area_id']}">{$area['area_name']}</option>
+                        </if> 
+                    </volist>
+                    
+                </select>
+            </div>
+            <div class="form-group">
+                <span class="btn btn-primary" id="submit-area">确认</span>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="/static/js/zepto.js"></script>
+    <script type="text/javascript" src="/static/js/v1/area.js"></script>
+    {:W("GoogleAnalytics")} 
+</body>
+</html>

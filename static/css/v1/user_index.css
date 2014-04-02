@@ -1,0 +1,122 @@
+.user-wrap {
+    padding: 10px 0;
+    background: #fff;
+    border-top: 1px solid #00ccff;
+}
+
+.user-part {
+    display: block;
+    padding: 10px 10px 20px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.user-part:visited, .user-part:hover, .user-part:active {
+    background: #fff;
+    text-decoration: none;
+}
+
+.user-header {
+    display: block;
+    float: left;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    background: url(/static/img/v1/sprite.png) -20px 1px no-repeat;
+}
+
+.user-name {
+    display: block;
+    float: left;
+    max-width: 140px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 5px 0 0 5px;
+}
+
+.user-info {
+    display: block;
+    float: left;
+    font-size: 10px;
+    padding: 4px 8px;
+    margin: 4px 0 0 15px;
+}
+
+.user-order-grade {
+    display: block;
+    margin-top: 2px;
+    font-size: 13px;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+.favorite-shop-list {
+    margin-bottom: 5px;
+    height: 100px;
+    border-bottom: 1px solid #cccccc;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+.favorite-shop-list-title {
+    display: block;
+    margin: 1px 0;
+    font-size: 13px;
+    padding: 10px 10px;
+    background-color: #9954bb;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.favorite-shop-list-wrap .favorite-shop {
+    display: inline-block;
+    padding: 5px;
+}
+
+.favorite-shop-list-wrap .favorite-shop a {
+    padding: 0;
+}
+
+.favorite-shop-list-wrap .favorite-shop a:active,.favorite-shop-list-wrap .favorite-shop a:visited, .favorite-shop-list-wrap .favorite-shop a:hover  {
+    background: #fff;
+}
+
+
+
+.favorite-shop-image {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ccccff;
+    width: 70px;
+    height: 70px;
+}
+
+.favorite-shop-name {
+    display: block;
+    margin: 0 auto;
+    max-width: 80px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    font-size: 12px;
+}
+
+.user-order-history {
+    display: block;
+    margin: 1px 0;
+    font-size: 13px;
+    padding: 10px 10px;
+}
+
+.go-rest-list {
+    color: #F7F7F7;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.activity-box {
+    margin-top: 20px;
+}

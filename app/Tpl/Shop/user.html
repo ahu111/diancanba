@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:shop-common-header" />
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/shop-user.css" />
+</head>
+<body>
+     {:W("shopHeader")}
+     <div class='container'>
+        <ul class="nav nav-pills container shop-sidebar ">
+            <li><a href="/shop"><span class="glyphicon glyphicon-home"></span> 最新订单</a></li>
+            <li><a href="/shop/info"><span class="glyphicon glyphicon-home"></span> 餐厅管理</a></li>
+            <li><a href="/shop/menu"><span class="glyphicon glyphicon-list"></span> 餐点管理</a></li>
+            <li><a href="/shop/customer"><span class="glyphicon glyphicon-gift"></span> 顾客列表</a></li>
+             <li class="active"><a href="/shop/user"><span class="glyphicon glyphicon-user"></span> 商户信息</a></li>
+        </ul>
+         <div class="container ">
+             <form class="form-horizontal" id='shop-user-form'>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">商户邮箱 <span class="glyphicon glyphicon-envelope"></span></label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control shop-email-input" value="{$shopInfo['shop_email']}" disabled id="inputEmail" placeholder="您的电子邮箱(用于登录、消息通知)">
+                            <a href='#' class='shop-password-change' id='shop-password-change'>更改密码</a>
+                        </div>
+                    </div>
+                    <div class="form-group password-change-wrap">
+                        <label for="inputPassword" class="col-lg-2 control-label">旧密码</label>
+                        <div class="col-lg-3">
+                            <input type="password" class="form-control" id="shop-password" placeholder="输入旧密码">
+                        </div>
+                        <label for="inputPassword" class="col-lg-2 control-label">新密码</label>
+                        <div class="col-lg-3">
+                            <input type="password" class="form-control" id="shop-new-password" placeholder="输入新密码(6-20位英文/数字/下划线)">
+                        </div>
+                        <div class="col-lg-2">
+                            <span class="btn btn-warning" id='password-change-submit'>确认更改</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-lg-2 control-label">真实姓名 <span class="glyphicon glyphicon-user"></span></label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" value="{$shopInfo['shop_user_name']}" id="shop-user-name" placeholder="您的姓名">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-lg-2 control-label">联系电话 <span class="glyphicon glyphicon-earphone"></span></label>
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control" value="{$shopInfo['shop_user_phone']}" id="shop-user-phone" placeholder="个人电话">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-lg-2 control-label">月营业额 <span class="glyphicon glyphicon-book"></span></label>
+                        <div class="col-lg-3">
+                            <select class="form-control" id="shop-sales">
+                               <volist name='saleLevel' id='vo'>
+                                   <if condition="($vo['set_data'] eq $shopInfo['shop_sales_level'])" >
+                                        <option selected value="{$vo['set_data']}">{$vo['set_data']}元<option>
+                                   <else />
+                                       <option value="{$vo['set_data']}">{$vo['set_data']}元<option>
+                                   </if>
+                               </volist>
+                            </select>
+                        </div>
+                    </div>
+                 
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <span class="btn btn-primary" id='update-shop-info'>立即更新</span>
+                        </div>
+                    </div>
+              </form>
+         </div>
+     </div>
+     <script type="text/javascript" src="/static/js/jquery-1.8.3.js"></script>
+     <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+     <script type="text/javascript" src="/static/js/v1/shop-user.js?v=20140327"></script>
+     {:W("GoogleAnalytics")} 
+</body>
+</html>

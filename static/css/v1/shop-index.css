@@ -1,0 +1,23 @@
+.order-price {
+    color: #ff0033;
+    font-size: 16px;
+}
+
+.order-phone {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.order-time {
+    color: #ff0033;
+    font-size: 14px;
+}
+
+.menu-wrap {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.order-reject, .order-accept {
+    margin: 5px 10px;
+}

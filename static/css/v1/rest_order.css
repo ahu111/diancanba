@@ -1,0 +1,190 @@
+.shop-logo {
+    display: block;
+    float: left;
+    width: 65px;
+    height: 65px;
+    margin-right: 5px;
+}
+
+ .shop-name {
+    display: block;
+    font-size: 16px;
+    width: 220px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #333;
+}
+
+.shop-info {
+    display: block;
+    float: left;
+    margin-left: 5px;
+}
+.shop-wrap {
+    border-bottom: 1px solid #cccccc;
+    position: relative;
+    padding: 5px;
+}
+
+.shop-wrap:after {
+    display: block;
+    visibility: visible;
+    height: 0;
+    content: " ";
+    clear: both;
+}
+
+.shop-phone {
+    color: #0099ff;
+    font-size: 14px;
+}
+
+.shop-intro {
+    position: absolute;
+    bottom: 2px;
+    font-size: 14px;
+    max-width: 220px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.order-detail-table {
+    margin: 15px auto 0px;
+    border-bottom: 2px solid #00ccff;
+}
+
+.order-detail-table th {
+    word-break: keep-all;
+}
+
+.order-detail-title {
+    background: #00ccff;
+    color: #fff;
+}
+
+.list-group {
+    margin-top: 3px;
+}
+
+.list-group > li {
+    padding: 10px 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-group > li:nth-child(even) {
+    background: #F9F9F9;
+}
+
+.list-group-line-first {
+    display: block;
+    float: left;
+    width: 55%;
+}
+
+.list-group-line-second {
+    display: block;
+    float: left;
+    width: 15%;
+}
+
+.list-group-line-third {
+    display: block;
+    float: left;
+    width: 15%;
+}
+
+.list-group-line-fourth {
+    display: block;
+    float: left;
+    width: 15%;
+}
+
+.order-detail-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.order-price-wrap {
+    height: 40px;
+}
+
+
+.order-user-remark label {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.order-user-remark input {
+    padding: 2px 3px;
+    outline: none;
+    height: 28px;
+    display: inline-block;
+    max-width: 200px;
+}
+
+.order-total-show {
+    display: block;
+    width: 45%;
+    float: right;
+    line-height: 28px;
+    text-align: right;
+}
+
+.order-price-total {
+    color: #ff0033;
+}
+
+.order-other-info li {
+    padding: 10px 8px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.order-other-info .other-title{
+    display: inline;
+}
+
+.address-modify, .phone-modify, .name-modify  {
+    color: #bbb;
+    padding: 5px 8px;
+}
+
+.order-other-info input {
+    max-width: 160px;
+    display: none;
+    height: 30px;
+    padding-left: 3px;
+}
+
+.order-user-remark input {
+    padding: 2px 3px;
+    outline: none;
+    height: 28px;
+    display: inline-block;
+    max-width: 200px;
+}
+
+.order-other-info .order-check-wrap {
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 20px;
+    border-bottom: none;
+}
+
+.order-check-wrap .btn {
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.pay-when-arrive {
+    border: 2px solid #ff0033;
+    padding: 3px 6px;
+}
+
+.address-submit, .phone-submit, .name-submit {
+    display: none;
+    margin-left: 8px;
+}

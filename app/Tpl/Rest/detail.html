@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:head-static" />
+    <title>{$shopDetail['shop_name']}，{$shopDetail['shop_introduce']} - 点餐吧 | 旨在为您提供快捷极致的订餐服务</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/v1/rest_detail.css" />
+</head>
+<body>
+     <!-- 餐厅列表 start-->
+    <div class="navbar navbar-inverse top-navbar-wrap">
+        <div class="top-navbar text-center">
+            <span class="navbar-title">{$shopDetail['shop_name']}</span>
+            <if condition="$favoriteStatus neq null">
+                <span class="favorite-shop-done" id="favorite-shop-done">取消收藏</span>
+            <else />
+                <span class="favorite-shop" id="favorite-shop">收藏餐厅</span>
+            </if>
+             <input type="hidden" value="{$shopDetail['shop_id']|encodeShopId}" id="shopIndex" />
+        </div>
+    </div>
+     <div class="detail-wrap">
+         <if condition="($_SESSION['order']['shopId'] neq encodeShopId($shopDetail['shop_id']) AND $_SESSION['order']['shopId'] neq null)">
+         <div class="alert alert-dismissable alert-warning order-warning">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <span>您有未完成的订单,是否前往完成该订单？<a href="/rest/detail/{$_SESSION['order']['shopId']}" class="label label-success">确认</a></span>
+          </div>
+         </if>
+         <div class="shop-cart">
+             <div class="shop-cart-logo"><span class="shop-cart-image"></span>购物车</div>
+             <div class="shop-cart-number-wrap">
+                 <span class="shop-cart-number" id="shop-cart-number">0 份</span>
+                 <strong class="shop-cart-price-total" id="shop-cart-price-total">￥0</strong>
+                 <div class="clearfix"></div>
+             </div>
+             <if condition="$shopDetail['shop_status'] neq 1">
+                 <div class="btn btn-warning order-submit-btn btn-sm disabled" id="orderCheck">已打烊</div>
+             <else />
+                <div class="btn btn-primary order-submit-btn btn-sm" id="orderCheck">还差{$shopDetail['shop_start_price']}元起送</div>
+             </if>
+         </div>
+         <div class="shop-intro">
+             <span class="shop-intro-image"></span>
+             <span class="shop-intro-content">{$shopDetail['shop_introduce']}</span>
+         </div>
+         <div class="shop-notify">
+              <span class="shop-notify-image"></span>
+             <span class="shop-notify-content">{$shopDetail['shop_notify']}</span>
+         </div>
+         <ul class="nav shop-menu-list">
+             <volist name="menuList" id="vo">
+                 <li class="menu-detail-wrap" <if condition="$vo['menu_status'] eq 2">style="opacity:0.5" </if> >
+                 <if condition="$vo['menu_image'] neq ''">
+                     <img class="menu-logo" src="{$vo['menu_image']}" alt="" />
+                 </if>
+                <div class="menu-intro">
+                    <div class="menu-name-wrap">
+                        <strong class="menu-name">
+                            <if condition="$vo['menu_status'] eq 2"><span class="menu-sold-out">[已售罄]</span></if>{$vo['menu_name']}</strong>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="menu-content">
+                        <strong class="menu-single-price">￥{$vo['price']}</strong>
+                        <div class="menu-buy-wrap">
+                            <div class="menu-minus"><span class="menu-image-box"><span></div>
+                            <input class="menu-number" type="text" readonly="true" value="0" menuIndex="{$vo['menu_id']|encodeMenuId}"/>
+                            <div class="menu-plus"><span class="menu-image-box"></span></div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="menu-intro-other">
+                        <span class="comment-number">{$vo['remark_ave_grade']} ({$vo['remark_number']})</span>
+                    </div>
+                </div>
+                <div class="add-on">
+                     <if condition="$vo['special'] eq 1">
+                        <span class='menu-special'>招牌</span>
+                    </if>
+                    <if condition="$vo['discounted'] eq 1">
+                        <span class='menu-discounted'>折</span>
+                    </if>
+                    <if condition="$vo['new_menu'] eq 1">
+                        <span class='menu-new-menu'>新</span>
+                    </if>
+                </div>
+                <div class="menu-store">
+                    <span class="sell-per-month">月售 {$vo['sold_per_month']}</span>
+                </div>
+                <div class="clearfix"></div>
+            </li>
+             </volist>
+         </ul>
+     </div>
+     {:W("menuTab")} 
+     <script type="text/javascript" src="/static/js/zepto.js"></script>
+     <script type="text/javascript" src="/static/js/alert.js"></script>
+     <script type="text/javascript" src="/static/js/v1/rest_detail.js"></script>
+     {:W("GoogleAnalytics")} 
+</body>
+</html>

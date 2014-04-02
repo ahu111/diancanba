@@ -1,0 +1,15 @@
+.shop-password-change {
+    display: inline-block;
+    padding: 5px 0;
+    color: #0099ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.password-change-wrap {
+    display: none;
+    border: 1px solid #B7BEC2;
+    padding: 10px;
+    background: beige;
+    margin-bottom: 40px;
+}
