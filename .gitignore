@@ -1,6 +1,6 @@
 /app/Runtime/
-/crontab/
 /data/
 /nbproject/
 /Project Documents/
 .htaccess
+/app/Conf/

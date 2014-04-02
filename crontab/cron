@@ -1,0 +1,4 @@
+* 0 * * * /alidata/server/php/bin/php /alidata/www/ordering/crontab/day.php
+0 * * * * /alidata/server/php/bin/php /alidata/www/ordering/crontab/hourly.php
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * /alidata/server/php/bin/php /alidata/www/ordering/crontab/minutes.php
+
