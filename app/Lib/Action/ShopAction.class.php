@@ -351,7 +351,7 @@ class ShopAction extends Action {
         $this->display();
     }
     
-      //移动端获取新的订单信息
+      //商铺移动端获取新的订单信息
     public function get_new_menu_from_mobile() {
         if (isset($_POST["__wx__"])) {
             session_id($this->_post("__wx__"));
@@ -454,10 +454,10 @@ class ShopAction extends Action {
         $orderUserName = $this->_post("orderUserName");
         
         if (D("Order")->boolOrderWithShop($shopId, $orderId)) {
-         //   if ($this->sendRejectMessageToUser($orderPhone, $orderUserName, $reason)) {
+            if ($this->sendRejectMessageToUser($orderPhone, $orderUserName, $reason)) {
                 M("order")->where("oid = $orderId")->save(array("order_status" => 4, "reject_reason" => $reason));      //确认订单
                 $this->ajaxReturn(array("responce" => "SUCCESS", "message" => "拒绝成功！"));
-           // }
+            }
             
         } else {
             $this->ajaxReturn(array("responce" => "FAILED", "message" => "您的餐厅没有该订单，请刷新后重试！"));

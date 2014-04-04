@@ -160,9 +160,6 @@ class OrderModel extends Model {
     //获取最新的订单
     public function getNewOrderByAdmin() {
          return M()->table("o_order as o, o_shop as s")->where("o.order_status = 2 AND o.shop_id = s.shop_id  AND to_days(NOW()) - to_days(date) = 0")
-                 ->field("s.shop_name, s.shop_phone, s.shop_address, o.oid, o.order_price,"
-                         . " o.order_number, o.order_address, o.order_user_name, o.order_phone,"
-                         . " o.user_remark, o.order_status, o.date")
                  ->order("date DESC")->select();
     }
     
