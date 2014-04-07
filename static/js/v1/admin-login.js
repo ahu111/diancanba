@@ -9,9 +9,10 @@ $(function() {
            regxPassword = /^[a-zA-Z0-9_-]{6,20}$/i;
            
        //检验最基本的用户名有效性
-       if (regxAccount.test(userEmail) && regxPassword.test(userPassword)) {
+       //if (regxAccount.test(userEmail) && regxPassword.test(userPassword)) {
            $.post(
-                "/admin/adminLogin/" + userEmail + "/" + userPassword,
+                "/admin/adminLogin/",
+                {"userEmail": userEmail, "userPassword": userPassword},
                 function(responce) {
                     if (responce.responce === "SUCCESS") {
                         window.location.href = "/admin/";
@@ -21,9 +22,9 @@ $(function() {
                 },
                 "json"
            )
-       } else {
-           alert("账号或密码格式错误!");
-       }
+     //  } else {
+       //    alert("账号或密码格式错误!");
+     //  }
        $("#admin-login-form").submit(false)
    });
    

@@ -83,6 +83,8 @@ $(function() {
         "/area/checkAreaId",
         function(data) {
             if (data.responce === "SUCCESS") {
+                localStorage.setItem("areaId",data.areaId);
+                localStorage.setItem("sessionId", data.sessionId);
                 window.location.href = "/";
             } else {
                 alert(data.message);

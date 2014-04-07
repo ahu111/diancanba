@@ -1,0 +1,21 @@
+<script type="text/javascript" src="/static/js/zepto.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var areaId = localStorage.getItem("areaId"),
+            sessionId = localStorage.getItem("sessionId");
+
+         if (sessionId == "" || sessionId == undefined || areaId == "" || areaId == undefined) {
+         	location.href = "/area"
+         } else {
+         	$.post(
+         		"/area/init/",
+         		{"sessionId": sessionId, "areaId": areaId},
+         		function(responce) {
+         			location.href = "/rest"
+         		},
+         		"json"
+         	);
+         }
+	});
+
+</script>

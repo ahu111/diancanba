@@ -115,9 +115,9 @@ class AdminAction extends Action {
     //管理员登录验证
     public function adminLogin() {
         session_start();
-        $userAccount = $this->_param(2);
-        $userPassword = $this->_param(3);
-        
+        $userAccount = $this->_post("userEmail");
+        $userPassword = $this->_post("userPassword");
+  
         $regxAccount = "/^[a-zA-Z0-9_]{6,16}$/i";
         $regxPassword = "/^[a-zA-Z0-9_-]{6,20}$/i";
         
@@ -168,6 +168,7 @@ class AdminAction extends Action {
             session_id($this->_post("__wx__"));
         }
         session_start();
+        
         $orderId = decodeOrderId(intval($this->_post("orderId")));
         $orderAddress = $this->_post("orderAddress");
         $orderPhone = $this->_post("orderPhone");
@@ -178,10 +179,10 @@ class AdminAction extends Action {
         $shopSpeed = D("Shop")->getShopSpeed($shopId);
             
         //确认发送短信
-        if ($this->sendMessageToUser($orderPhone, $orderUserName, $orderAddress, $shopSpeed, $orderPrice)) {
+       // if ($this->sendMessageToUser($orderPhone, $orderUserName, $orderAddress, $shopSpeed, $orderPrice)) {
             M("order")->where("oid = $orderId")->save(array("order_status" => 3));      //确认订单
             $this->ajaxReturn(array("responce" => "SUCCESS", "message" => "订单已成功确认！"));
-       }
+       //}
     }
     
     //管理员拒绝订单
@@ -197,10 +198,10 @@ class AdminAction extends Action {
         $shopId = M("order")->where("oid = $orderId")->getField("shop_id");
         
         if (D("Order")->boolOrderWithShop($shopId, $orderId)) {
-            if ($this->sendRejectMessageToUser($orderPhone, $orderUserName, $reason)) {
+         //   if ($this->sendRejectMessageToUser($orderPhone, $orderUserName, $reason)) {
                 M("order")->where("oid = $orderId")->save(array("order_status" => 4, "reject_reason" => $reason));      //确认订单
                 $this->ajaxReturn(array("responce" => "SUCCESS", "message" => "拒绝成功！"));
-            }
+           // }
             
         } else {
             $this->ajaxReturn(array("responce" => "FAILED", "message" => "您的餐厅没有该订单，请刷新后重试！"));

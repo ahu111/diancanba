@@ -151,9 +151,24 @@ class AreaAction extends Action {
     //点击提交后检查是否已经设置了areaId
     public function checkAreaId() {
         if (session("areaId")) {
-            $this->ajaxReturn(array("responce" => "SUCCESS"));
+            $this->ajaxReturn(array("responce" => "SUCCESS", "areaId" => session("areaId"), "sessionId" => session_id()));
         } else {
             $this->ajaxReturn(array("responce" => "FAILED", "message" => "请选择附近的地点后再进行确认"));
-        }
+         }
+    }
+
+    /**
+     * 功能：用户sessionId初始化
+     */
+    public function init() {
+        $sessionId = $this->_post("sessionId");
+        $areaId = $this->_post("areaId");
+        session("name", "__wx__");
+         session_id($sessionId);
+        session_set_cookie_params(3600 * 24 * 365, "/");
+        session('expire', 3600 * 24 * 365);   
+       session_start();
+       session("areaId", $areaId);
+       $this->ajaxReturn(array("responce" => true));
     }
 }
